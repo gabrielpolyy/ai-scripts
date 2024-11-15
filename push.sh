@@ -16,10 +16,14 @@ if git diff --cached --quiet; then
   exit 0
 fi
 
-# Run lint check
-if ! npm run lint; then
-  echo "Lint check failed. Please fix the issues before committing."
-  exit 1
+# Run lint check if available
+if npm run | grep -q 'lint'; then
+  if ! npm run lint; then
+    echo "Lint check failed. Please fix the issues before committing."
+    exit 1
+  fi
+else
+  echo "Lint script not found. Skipping lint check."
 fi
 
 # Get the diff and trim it if it's too long
