@@ -4,7 +4,7 @@ A set of simple shell scripts that use AI to make git workflows easier. These to
 
 ## What's Included
 
-- AI code reviews that actually make sense
+- AI code reviews
 - Smart commit messages written by AI
 - Automatic SSH key handling for GitHub
 - Code lint checks before commits
