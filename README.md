@@ -2,6 +2,8 @@
 
 A set of simple shell scripts that use AI to make git workflows easier. These tools help with code reviews and writing commit messages automatically.
 
+This is what I use, please modify as needed for your own workflows.
+
 ## What's Included
 
 - AI code reviews
