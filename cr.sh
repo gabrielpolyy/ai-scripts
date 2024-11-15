@@ -9,6 +9,10 @@ git fetch --all
 
 # Get the diff and truncate if necessary
 cr_diff_message=$(git diff origin/$TARGET_BRANCH..$PR_BRANCH)
+
+# when you want to code review someone else's PR
+# cr_diff_message=$(git diff origin/$TARGET_BRANCH...origin/$PR_BRANCH)
+
 max_tokens=100000
 cr_diff_truncated=$(echo "$cr_diff_message" | head -c $max_tokens)
 
