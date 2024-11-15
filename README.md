@@ -29,6 +29,10 @@ Makes pushing code way easier by:
 
 ### Code Reviews
 
+## Prerequisites
+
+- Ensure you have the [LLM tool](https://llm.datasette.io/en/stable/) installed and available globally in your shell. This is necessary for the AI functionalities in the scripts.
+
 ## Installation
 
 1. Ensure your SSH key is in the `.ssh` folder and named `github`. If not, please modify the script accordingly.
