@@ -1,4 +1,4 @@
-# AI-Powered Git Tools
+# AI-Scripts
 
 A set of simple shell scripts that use AI to make git workflows easier. These tools help with code reviews and writing commit messages automatically.
 
@@ -28,3 +28,38 @@ Makes pushing code way easier by:
 ## How to Use
 
 ### Code Reviews
+
+## Installation
+
+1. Ensure your SSH key is in the `.ssh` folder and named `github`. If not, please modify the script accordingly.
+
+2. Create bin directory in your home folder if it doesn't exist:
+   ```bash
+   mkdir -p ~/bin
+   ```
+
+3. Add symbolic links to the scripts:
+   ```bash
+   ln -s /path/to/ai-scripts/cr.sh ~/bin/cr
+   ln -s /path/to/ai-scripts/push.sh ~/bin/push
+   ```
+
+4. Add ~/bin to PATH:
+
+   For bash:
+   ```bash
+   echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
+   ```
+
+   For zsh:
+   ```bash
+   echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc
+   ```
+
+5. Reload your shell configuration:
+   ```bash
+   source ~/.bashrc  # for bash
+   # or
+   source ~/.zshrc   # for zsh
+   ```
+
