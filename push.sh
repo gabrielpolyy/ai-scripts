@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Check if SSH agent is running
 if [ -z "$SSH_AUTH_SOCK" ]; then
@@ -12,7 +13,7 @@ git add .
 
 # Check if there are staged changes
 if git diff --cached --quiet; then
-  echo "No staged changes. Please stage some changes before running this script."
+  echo "No changes to commit."
   exit 0
 fi
 
@@ -30,10 +31,15 @@ fi
 diff_message=$(git diff --cached | head -c 50000)
 
 # Generate a commit message using the trimmed diff of staged changes
-commit_message=$(llm "Generate a one-line commit message summarizing the following changes:
+commit_message=$(llm "Generate a one-line commit message summarizing the following changes. Start with a lowercase letter (e.g., 'add feature' not 'Add feature'):
 
 $diff_message
 ")
 
-git commit -a -m "$commit_message"
+if [ -z "$commit_message" ]; then
+  echo "Failed to generate commit message."
+  exit 1
+fi
+
+git commit -m "$commit_message"
 git push
