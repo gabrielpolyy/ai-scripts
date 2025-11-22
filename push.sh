@@ -7,7 +7,7 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 fi
 
 # Check if the key is already added
-ssh-add -l | grep -q "$(ssh-keygen -lf ~/.ssh/github | awk '{print $2}')" || ssh-add ~/.ssh/github
+ssh-add -l | grep -q "$(ssh-keygen -lf ~/.ssh/id_ed25519 | awk '{print $2}')" || ssh-add ~/.ssh/id_ed25519
 
 git add .
 
@@ -18,7 +18,7 @@ if git diff --cached --quiet; then
 fi
 
 # Run lint check if available
-if npm run | grep -q 'lint'; then
+if npm run 2>/dev/null | grep -q 'lint'; then
   if ! npm run lint; then
     echo "Lint check failed. Please fix the issues before committing."
     exit 1
